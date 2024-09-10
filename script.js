@@ -1,5 +1,6 @@
-//SQUARES CREATOR
-function createSquares(){
+
+//SQUARES DEFAULT CREATOR
+function createDefaultSquares(){
 
     const container = document.querySelector("#container");
     const content = document.createElement("div");
@@ -14,21 +15,32 @@ function createSquares(){
     }
 
 
+//Default loop
+function divLoop(){
+    const size = 15.94
+    for (let i = 0; i < size * size; i++){
+        createDefaultSquares();
+    }
+}
+ 
+
+
+
 
 let value;
 
 //LOOP BY USER
-function squaresNumber(){
+function getSquaresNumber(){
     const button = document.querySelector('#button1')
     
     button.addEventListener("click" , () => {
      value = prompt("¿Number of squares? 4-100");
-     if (!isNaN(value) && value > 4) {
-         userDivLoop(value);
-    
+     if (!isNaN(value) && value >= 1 && value <= 100) {
+    userGridSquare(value)
+
      } 
      else if(value > 100){
-        alert("Choose a number between 4 and 100!");
+        alert("Choose a number between 1 and 100!");
     
      }
      else {
@@ -36,48 +48,57 @@ function squaresNumber(){
      }
 
     
-    })
-
+    });
       };
-    
+
+
+function getRandomColor(){
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
 
 
 
+//USER SQUARE GRID
 
-
-
-//Default loop
-function divLoop(){
-    for (let i = 0; i < 255; i++){
-        createSquares();
-    }
-}
-
-//Loop by User choice
-function userDivLoop(value){
+function userGridSquare(value) {
+    clearContainer();
+        for (let i = 0; i < value * value; i++){
     const container = document.querySelector("#container");
-    container.innerHTML = '';
-    for (let i = 0; i < value; i++){
-        createSquares();
-    }
+    const userContent = document.createElement("div");
+    container.appendChild(userContent);
+    userContent.setAttribute("class", "userContent");
+    userContent.style.flexBasis = `calc(100% / ${value})`;
+    document.addEventListener('mouseover', function(e) {
+        if (e.target && e.target.className == 'userContent') {
+              var target = e.target;
+              target.classList.add('hover');
+        }
+      });
+    
+}
 }
 
 
-//Loaded in time
- 
+function clearContainer() {
+        const container = document.querySelector('#container');
+        container.innerHTML  = ''; // Clears all inner HTML
+    }
 
 
-//Default number of squares function
+
+
+function creator(){
+    createDefaultSquares();
+    divLoop();
+    getSquaresNumber()
+}
+
+// DEFAULT GRID SQUARE
 document.addEventListener('DOMContentLoaded', function() {
     creator();
 });
-
-function creator(){
-    squaresNumber();
-    createSquares();
-    divLoop()
-}
-
-creator()
-
-
