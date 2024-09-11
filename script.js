@@ -8,7 +8,7 @@ function createDefaultSquares(){
     container.appendChild(content);
     document.addEventListener('mouseover', function(e) {
         if (e.target && e.target.className == 'content') {
-              var target = e.target;
+              let target = e.target;
               target.classList.add('hover');
         }
       });
@@ -51,16 +51,29 @@ function getSquaresNumber(){
 
 
 function getRandomColor(){
-    const buttonR = document.querySelector('#button3')
-    buttonR.addEventListener("click" , () => {
+  
         let letters = '0123456789ABCDEF';
         let color = '#';
-        for (var i = 0; i < 6; i++) {
+        for (let i = 0; i < 6; i++) {
           color += letters[Math.floor(Math.random() * 16)];
         }
-        return color;
-    })
-      }
+        return color
+    }
+     
+
+function rainbowColor(){
+    const buttonR = document.querySelector('#button3')
+    buttonR.addEventListener("click" , () => {
+    document.addEventListener('mouseover', function(e) {
+        if (e.target && e.target.classList.contains('userContent') || 
+        e.target && e.target.classList.contains('content')  ) {
+              let target = e.target;
+              target.style.backgroundColor = `${getRandomColor()}`;
+            }})
+        }
+
+    )}
+
 
 
 
@@ -87,7 +100,7 @@ function userGridSquare(value) {
 
 function clearContainer() {
         const container = document.querySelector('#container');
-        container.innerHTML  = ''; // Clears all inner HTML
+        container.innerHTML  = '';
     }
 
 
@@ -96,7 +109,8 @@ function clearContainer() {
 function creator(){
     createDefaultSquares();
     divLoop();
-    getSquaresNumber()
+    getSquaresNumber();
+    rainbowColor()
 }
 
 // DEFAULT GRID SQUARE
