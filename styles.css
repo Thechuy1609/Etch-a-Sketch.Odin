@@ -17,10 +17,6 @@ body{
 #button1:hover{
 background-color: rgb(255, 192, 18);
 }
-
-#button2:hover{
-    background-color: rgb(255, 192, 18);
-    }
     
 #button3:hover{
         background-color: rgb(255, 192, 18);
@@ -32,7 +28,7 @@ h1{
    text-shadow: -1px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
 
 }
-#button1,#button2,#button3 {
+#button1,#button3 {
     color: rgb(21, 255, 232);
     text-shadow: -1px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
  background-color: rgba(38, 39, 39, 0.128); height: 50px; width: 90px;
