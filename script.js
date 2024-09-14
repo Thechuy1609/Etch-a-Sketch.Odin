@@ -1,7 +1,6 @@
 
 //SQUARES DEFAULT CREATOR
 function createDefaultSquares(){
-
     const container = document.querySelector("#container");
     const content = document.createElement("div");
     content.classList.add("content");
@@ -34,6 +33,7 @@ function getSquaresNumber(){
     const button = document.querySelector('#button1')
     
     button.addEventListener("click" , () => {
+        clearContainer();
      value = prompt("¿Number of squares? 4-100");
      if (!isNaN(value) && value >= 1 && value <= 100) {
     userGridSquare(value)
@@ -60,6 +60,7 @@ function getRandomColor(){
         return color
     }
      
+
 
 function rainbowColor(){
     const buttonR = document.querySelector('#button3')
@@ -110,7 +111,7 @@ function creator(){
     createDefaultSquares();
     divLoop();
     getSquaresNumber();
-    rainbowColor()
+    rainbowColor();
 }
 
 // DEFAULT GRID SQUARE

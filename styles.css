@@ -17,7 +17,7 @@ body{
 #button1:hover{
 background-color: rgb(255, 192, 18);
 }
-    
+
 #button3:hover{
         background-color: rgb(255, 192, 18);
         }
@@ -60,7 +60,7 @@ border-width: 1px;
     border: solid rgb(0, 0, 0);
 cursor: pointer;
 flex-basis: calc(100%/16);
-border-width: 1px;
+border-width: 1px;opacity: 100%;
 }
 
 .hover2 {
@@ -71,3 +71,5 @@ background-color: orange;
 * {
     box-sizing: border-box;
   }
+
+ 
